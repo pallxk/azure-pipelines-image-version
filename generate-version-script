@@ -1,0 +1,25 @@
+#!/bin/sh
+
+REPO_NAME=azure-pipelines-image-generation
+OUTPUT_NAME=version.sh
+
+dirname=$(realpath "$(dirname "$0")")
+cd "$dirname"
+
+# Pull or clone
+if [ -d $REPO_NAME ]; then
+	cd $REPO_NAME
+	git pull
+else
+	git clone https://github.com/microsoft/$REPO_NAME.git
+	cd $REPO_NAME
+fi
+
+# Generate script
+{
+	cat "$dirname"/document.sh
+	git grep -h DocumentInstalledItem images/linux/scripts/installers/
+} | tee "$dirname/$OUTPUT_NAME"
+
+# Mark executable
+chmod +x "$dirname/$OUTPUT_NAME"
