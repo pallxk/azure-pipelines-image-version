@@ -1,0 +1,9 @@
+[Unit]
+Description=Update azure-pipelines-image-version routinely
+
+[Timer]
+OnActiveSec=1m
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=timers.target

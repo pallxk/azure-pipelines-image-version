@@ -1,0 +1,7 @@
+[Unit]
+Description=Update azure-pipelines-image-version
+
+[Service]
+Type=oneshot
+ExecStart={{ ansible_env.PWD }}/../generate-and-commit
+User={{ ansible_env.USER }}

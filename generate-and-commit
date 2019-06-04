@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+dirname=$(dirname "$0")
+date=$(date -Is)
+
+cd "$dirname"
+git checkout version.sh
+./generate-version-script
+git add -f version.sh
+git commit -m "version.sh: $date"
+git push

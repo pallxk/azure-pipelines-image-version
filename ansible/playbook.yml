@@ -1,0 +1,34 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+  vars:
+    service_name: azure-pipelines-image-version-autogen
+  tasks:
+    - name: Update version.sh routinely
+      block:
+        - name: Install cron job
+          cron:
+            name: "{{ service_name }}"
+            user: "{{ ansible_env.USER }}"
+            minute: 0
+            hour: 1
+            job: "{{ ansible_env.PWD }}/../generate-and-commit"
+      rescue:
+        # If cron is not available, try systemd timers
+        - name: Install {{ service_name }}.service
+          become: yes
+          template:
+            src: templates/{{ service_name }}.service
+            dest: /etc/systemd/system/
+        - name: Install {{ service_name }}.timer
+          become: yes
+          copy:
+            src: files/{{ service_name }}.timer
+            dest: /etc/systemd/system/
+        - name: Enable {{ service_name }}.timer now
+          become: yes
+          systemd:
+            daemon-reload: yes
+            name: "{{ service_name }}.timer"
+            enabled: yes
+            state: restarted
