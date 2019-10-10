@@ -238,6 +238,7 @@ DocumentInstalledItem "Azul Zulu OpenJDK (12) ($(/usr/lib/jvm/zulu-12-azure-amd6
 DocumentInstalledItem "Ant ($(ant -version))"
 DocumentInstalledItem "Gradle ${gradleVersion}"
 DocumentInstalledItem "Maven ($(mvn -version | head -n 1))"
+DocumentInstalledItem "Kind ($(kind version))"
 DocumentInstalledItem "Leiningen ($(lein -v))"
 DocumentInstalledItem "Miniconda ($($CONDA/bin/conda --version))"
 DocumentInstalledItem "Mono ($(mono --version | head -n 1))"
