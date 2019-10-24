@@ -272,7 +272,7 @@ DocumentInstalledItem "clippy ($(cargo-clippy --version 2>&1 | cut -d ' ' -f 2))
 DocumentInstalledItem "rustdoc ($(rustdoc --version 2>&1 | cut -d ' ' -f 2))"
 DocumentInstalledItem "bindgen ($(bindgen --version 2>&1 | cut -d ' ' -f 2))"
 DocumentInstalledItem "cbindgen ($(cbindgen --version 2>&1 | cut -d ' ' -f 2))"
-DocumentInstalledItem "Scala"
+DocumentInstalledItem "sbt ($(sbt --script-version))"
 DocumentInstalledItem "Sphinx Open Source Search Server"
 DocumentInstalledItem "Subversion ($(svn --version | head -n 1))"
 DocumentInstalledItem "Terraform ($(terraform --version))"
