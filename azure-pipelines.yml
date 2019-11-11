@@ -1,0 +1,26 @@
+name: $(Date:yyyyMMdd)-$(Hours)-$(Minutes)
+
+trigger:
+- master
+
+schedules:
+- cron: 0 12 * * *
+  displayName: Daily update
+  branches:
+    include:
+    - master
+  always: true  # Run even if no source code changes
+
+stages:
+- stage: generate_and_commit
+  displayName: Generate and Commit
+  jobs:
+  - job: generate_and_commit
+    displayName: Generate and Commit
+    pool:
+      vmImage: ubuntu-18.04
+    steps:
+    - checkout: self
+      persistCredentials: true
+
+    - bash: $(Build.SourcesDirectory)/generate-and-commit
