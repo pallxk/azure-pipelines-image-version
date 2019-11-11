@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -eux
 
 dirname=$(dirname "$0")
 date=$(date -Is)
@@ -13,5 +13,5 @@ git config user.email || git config user.email bot@pallxk.com
 git checkout version.sh
 ./generate-version-script
 git add -f version.sh
-git commit -m "version.sh: $date"
-git push
+# There may be no changes made to the version.sh script
+git commit -m "version.sh: $date" && git push || true
