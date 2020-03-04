@@ -2,7 +2,8 @@
 
 set -eux
 
-REPO_NAME=azure-pipelines-image-generation
+REPO_USER=actions
+REPO_NAME=virtual-environments
 OUTPUT_NAME=version.sh
 
 dirname=$(realpath "$(dirname "$0")")
@@ -13,7 +14,7 @@ if [ -d $REPO_NAME ]; then
 	cd $REPO_NAME
 	git pull
 else
-	git clone https://github.com/microsoft/$REPO_NAME.git
+	git clone https://github.com/$REPO_USER/$REPO_NAME.git
 	cd $REPO_NAME
 fi
 
