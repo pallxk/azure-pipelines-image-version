@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eux
+
 REPO_NAME=azure-pipelines-image-generation
 OUTPUT_NAME=version.sh
 
