@@ -1,0 +1,47 @@
+name: Auto Update
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 12 * * *'
+
+jobs:
+  generate-and-commit:
+    name: Generate and Commit
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - run: ./generate-and-commit
+
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: version.sh
+
+  test-on-ubuntu-1604:
+    name: Test on Ubuntu 16.04
+    runs-on: ubuntu-16.04
+    needs: generate-and-commit
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: version.sh
+
+      - run: ./version.sh
+
+  test-on-ubuntu-1804:
+    name: Test on Ubuntu 18.04
+    runs-on: ubuntu-18.04
+    needs: generate-and-commit
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: version.sh
+
+      - run: ./version.sh

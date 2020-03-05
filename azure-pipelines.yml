@@ -12,11 +12,11 @@ schedules:
   always: true  # Run even if no source code changes
 
 stages:
-- stage: generate_and_commit
-  displayName: Generate and Commit
+- stage: generate_commit_and_test
+  displayName: Generate, Commit, and Test
   jobs:
-  - job: generate_and_commit
-    displayName: Generate and Commit
+  - job: generate_commit_and_test
+    displayName: Generate, Commit, and Test
     pool:
       vmImage: ubuntu-18.04
     steps:
@@ -24,3 +24,7 @@ stages:
       persistCredentials: true
 
     - bash: $(Build.SourcesDirectory)/generate-and-commit
+      displayName: 'Bash: ./generate-and-commit'
+
+    - bash: $(Build.SourcesDirectory)/version.sh
+      displayName: 'Bash: ./version.sh'
