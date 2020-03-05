@@ -17,6 +17,11 @@ jobs:
 
       - run: ./generate-and-commit
 
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: version.sh
+
   test-on-ubuntu-1604:
     name: Test on Ubuntu 16.04
     runs-on: ubuntu-16.04

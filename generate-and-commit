@@ -14,4 +14,4 @@ git checkout version.sh
 ./generate-version-script
 git add -f version.sh
 # There may be no changes made to the version.sh script
-git commit -m "version.sh: $date" && git push || true
+git commit -m "version.sh: $date" || true
