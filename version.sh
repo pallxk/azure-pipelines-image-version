@@ -225,7 +225,7 @@ DocumentInstalledItem "Geckodriver (${ver}); Gecko Driver is available via GECKO
 DocumentInstalledItem "Git ($(git --version 2>&1 | cut -d ' ' -f 3))"
 DocumentInstalledItem "Git Large File Storage (LFS) ($(git-lfs --version 2>&1 | cut -d ' ' -f 1 | cut -d '/' -f 2))"
 DocumentInstalledItem "Google Chrome ($(google-chrome --version))"
-DocumentInstalledItem "Chromedriver ($(chromedriver --version)); Chrome Driver is available via CHROMEWEBDRIVER environment variable"
+DocumentInstalledItem "$(chromedriver --version); Chrome Driver is available via CHROMEWEBDRIVER environment variable"
 DocumentInstalledItem "Google Cloud SDK ($(gcloud --version | head -n 1 | cut -d ' ' -f 4))"
     DocumentInstalledItem "Haskell Cabal ($(/opt/cabal/$version/bin/cabal --version))"
     DocumentInstalledItem "GHC ($(/opt/ghc/$version/bin/ghc --version))"
