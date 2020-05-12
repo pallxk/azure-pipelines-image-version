@@ -233,7 +233,7 @@ DocumentInstalledItem "Geckodriver (${ver}); Gecko Driver is available via GECKO
 DocumentInstalledItem "Git ($(git --version 2>&1 | cut -d ' ' -f 3))"
 DocumentInstalledItem "Git Large File Storage (LFS) ($(git-lfs --version 2>&1 | cut -d ' ' -f 1 | cut -d '/' -f 2))"
     DocumentInstalledItem "Hub CLI ($(hub --version | grep "hub version" | cut -d ' ' -f 3))"
-    DocumentInstalledItem "Go $1 ($($goFolder/bin/go version))"
+    DocumentInstalledItem "Go $version ($($goFolder/bin/go version))"
 DocumentInstalledItem "Google Chrome ($(google-chrome --version))"
 DocumentInstalledItem "$(chromedriver --version); Chrome Driver is available via CHROMEWEBDRIVER environment variable"
 DocumentInstalledItem "Google Cloud SDK ($(gcloud --version | head -n 1 | cut -d ' ' -f 4))"
