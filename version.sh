@@ -187,7 +187,6 @@ DocumentInstalledItem "Git Large File Storage (LFS) ($(git-lfs --version 2>&1 | 
 DocumentInstalledItem "Git-ftp ($(git-ftp --version | cut -d ' ' -f 3))"
     DocumentInstalledItem "Hub CLI ($(hub --version | grep "hub version" | cut -d ' ' -f 3))"
 DocumentInstalledItem "GitHub CLI $(gh --version|awk 'FNR==1 {print $3}')"
-    DocumentInstalledItem "Go $version ($($goFolder/bin/go version))"
 DocumentInstalledItem "Google Chrome ($(google-chrome --version))"
 DocumentInstalledItem "$(chromedriver --version); Chrome Driver is available via CHROMEWEBDRIVER environment variable"
 DocumentInstalledItem "Google Cloud SDK ($(gcloud --version | head -n 1 | cut -d ' ' -f 4))"
